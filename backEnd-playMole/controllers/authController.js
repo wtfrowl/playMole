@@ -1,6 +1,5 @@
 const User = require("../models/User");
 
-
 exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -18,7 +17,7 @@ exports.login = async (req, res) => {
     }
 
     const token = await user.generateAuthToken();
-    user.password="";
+    user.password = "";
     res.json({ user, token });
   } catch (error) {
     console.error(error);
@@ -29,6 +28,7 @@ exports.login = async (req, res) => {
 exports.signup = async (req, res) => {
   try {
     const { username, password } = req.body;
+    s;
 
     const user = new User({ username, password });
 
@@ -36,8 +36,8 @@ exports.signup = async (req, res) => {
     await user.save();
 
     // Generate an authentication token
-    const token = user.generateAuthToken();
-   user.password="";
+    const token = await user.generateAuthToken();
+    user.password = "";
     res.json({ user, token });
   } catch (error) {
     console.error(error);

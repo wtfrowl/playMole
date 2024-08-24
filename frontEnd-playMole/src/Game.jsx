@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import "./App.css";
+import Cookies from 'js-cookie';
 import {UserContext} from './context/UserContext'
 import hole from "./assets/hole.png";
 import mole from "./assets/mole.png";
@@ -73,15 +74,43 @@ function Game() {
     setUsername('');
    
   }
-  function onTimeup() {
+ 
+
+  async function onTimeup() {
+
     console.log("tIME IS UP", score, localStorage.getItem("highScore"));
     if (score > localStorage.getItem("highScore")) {
       setHighScore(score + 1);
       localStorage.setItem("highScore", score);
+    await upScore();
+
     }
     setStartGame(false);
     setPopupOpen(true);
   }
+
+  async function upScore(){
+    const token= Cookies.get('token');
+    let headersList = {
+      "Accept": "*/*",
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
+     }
+     
+     let bodyContent = JSON.stringify({
+       "username": username,
+       "score": score
+     });
+     
+     let response = await fetch("http://localhost:4000/api/scores/update", { 
+       method: "PATCH",
+       body: bodyContent,
+       headers: headersList
+     });
+     
+     let data = await response.text();
+     console.log(data);
+    }
   const closePopup = () => {
     setPopupOpen(false);
     document.querySelector(".popup").style.display = "flex";

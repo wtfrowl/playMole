@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "./context/UserContext";
+import Cookies from 'js-cookie';
 const AccSetup = () => {
   const [inputUsername, setInputUsername] = useState('');
   const [inputPassword, setInputPassword] = useState('');
@@ -20,11 +21,14 @@ if(isLogin){
       });
 
       const data = await response.json();
-
+      const { token,user} = await data;
       if (response.ok) {
         // Handle successful login, like redirecting or storing token
         setUsername(inputUsername);
+        Cookies.set('token', token, { expires: 1 });
+        localStorage.setItem("highScore", user.score)
         setError(''); // Clear any previous errors
+       
       } else {
         setError(data.message || 'Error logging in');
       }
@@ -44,10 +48,13 @@ if(isLogin){
       });
 
       const data = await response.json();
-
+      const { token,user } = await data;
+     
       if (response.ok) {
         // Handle successful login, like redirecting or storing token
         setUsername(inputUsername);
+        Cookies.set('token', token, { expires: 1 });
+        localStorage.setItem("highScore", user.score)
         setError(''); // Clear any previous errors
       } else {
         setError( 'Already Registered Username' || data.message);

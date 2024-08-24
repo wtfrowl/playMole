@@ -10,6 +10,12 @@ const cors=require('cors')
 app.use(express.json());
 app.use(cors());
 
+//health Check
+
+app.get('/health',(req,res)=>{
+  res.json("We are Doing Fine");
+})
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/scores', scoreRoutes);

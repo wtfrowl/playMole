@@ -34,8 +34,6 @@ fetchScore();
 },[])
 
 
-
-
   return (
     <div className="leaderboard">
       <h2 className="leaderboard-title">Leaderboard</h2>
