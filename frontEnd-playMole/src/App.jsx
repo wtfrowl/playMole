@@ -30,7 +30,7 @@ const App = () => {
 
   return (
 <>
-
+ 
       {username ? <Game /> : <AccSetup  />}
 
     </>
