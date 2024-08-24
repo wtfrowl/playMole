@@ -11,6 +11,7 @@ const AccSetup = () => {
     e.preventDefault(); // Prevent the default form submission
 
 if(isLogin){
+  setError('Checking...');
     try {
       const response = await fetch('https://playmole.onrender.com/api/auth/login', {
         method: 'POST',
@@ -19,7 +20,7 @@ if(isLogin){
         },
         body: JSON.stringify({ username: inputUsername, password: inputPassword }),
       });
-
+      
       const data = await response.json();
       const { token,user} = await data;
       if (response.ok) {
@@ -27,7 +28,7 @@ if(isLogin){
         setUsername(inputUsername);
         Cookies.set('token', token, { expires: 1 });
         localStorage.setItem("highScore", user.score)
-        setError(''); // Clear any previous errors
+           // Clear any previous errors
        
       } else {
         setError(data.message || 'Error logging in');
@@ -38,6 +39,7 @@ if(isLogin){
     }
   }
   else{
+    setError('Talking to API...');
     try {
       const response = await fetch('https://playmole.onrender.com/api/auth/signup', {
         method: 'POST',
@@ -69,9 +71,10 @@ if(isLogin){
 
 
   return (<>
+  <div className="echo">GAME ON !</div>
   <div className="switch">
-        <h1 onClick={() => setIsLogin(true)} style={{ cursor: 'pointer', color: isLogin ? 'white' : '#ffffff73' }}>LOGIN NOW</h1>
-        <h1 onClick={() => setIsLogin(false)} style={{ cursor: 'pointer', color: !isLogin ? 'white' : '#ffffff73'  }}>SIGN UP</h1>
+        <h1 onClick={() => {setIsLogin(true); setError('')}} style={{ cursor: 'pointer', color: isLogin ? 'white' : 'lightgray' }}>LOGIN NOW</h1>
+        <h1 onClick={() => {setIsLogin(false); setError('')}} style={{ cursor: 'pointer', color: !isLogin ? 'white' : 'lightgray'  }}>SIGN UP</h1>
       </div>
     <form onSubmit={handleSubmit} className="setup form">
       <input

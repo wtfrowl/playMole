@@ -29,7 +29,8 @@ function Game() {
       setTimeout(() => {
         hideMoles(rIndex);
       }, 680);
-    }, 1000);
+    }, 1000); 
+  
     return () => {
       clearInterval(interval);
     };
@@ -53,6 +54,8 @@ function Game() {
     });
   }
   function handleClick(idx) {
+    audioBonk.srcObject=null;
+    audioError.srcObject=null
     if (!moles[idx]) return audioError.play();
     // const nMoles=[...moles];
     // nMoles[idx]= false;
@@ -155,9 +158,11 @@ function Game() {
           <button className="btnAc" onClick={handleStart}>
             Start
           </button>
+          <button onClick={toggleLeaderboard}>LeaderBoard</button>
           <button className="btnAc" onClick={handleReset}>
             LogOut
           </button>
+
         </div>
       </div>
       {startGame ? (
@@ -180,7 +185,7 @@ function Game() {
           ))}
         </div>
       )}
-      <Popup isOpen={isPopupOpen} onClose={closePopup} myscore={score} />
+      <Popup isOpen={isPopupOpen} onClose={closePopup} myscore={score}  lb={toggleLeaderboard}/>
     </>
   );
 }

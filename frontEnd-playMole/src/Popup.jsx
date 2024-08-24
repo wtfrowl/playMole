@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import cry from "./assets/cry.mp3";
 import win from "./assets/win.mp3";
 const cryMp3 = new Audio(cry);
-function Popup({ isOpen, onClose, myscore }) {
+function Popup({ isOpen, onClose, myscore,lb }) {
   const hScore = localStorage.getItem("highScore");
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
@@ -17,8 +17,7 @@ function Popup({ isOpen, onClose, myscore }) {
       };
 
       return () => {
-        cryMp3.pause();
-        cryMp3.currentTime = 0;
+        cryMp3.srcObject=null
       };
     } else if (isOpen) {
       const winMp3 = new Audio(win);
@@ -30,8 +29,7 @@ function Popup({ isOpen, onClose, myscore }) {
       };
 
       return () => {
-        winMp3.pause();
-        winMp3.currentTime = 0;
+        winMp3.srcObject=null
       };
     }
   }, [isOpen, myscore, hScore]);
@@ -48,11 +46,12 @@ function Popup({ isOpen, onClose, myscore }) {
               <>
                 You scored {myscore} {":("}
               </>
-              
+          
             )}
           </p>
+          <button onClick={lb}>LeaderBoard</button>
           <button onClick={onClose}>Close</button>
-          
+         
         </div>
       </div>
     )

@@ -178,6 +178,7 @@ button.btnAc {
 }
 
 .leaderboard-popup {
+  min-height: 400px;
   min-width: 300px;
     display: flex;
     flex-direction: column;
@@ -245,4 +246,9 @@ button.btnAc {
   font-weight: bold;
   color: #1a73e8;
   font-size: 16px;
+}
+.echo{
+  font-size: 60px;
+  color: white;
+  color: cornsilk;
 }

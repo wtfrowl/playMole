@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
+import { CheckboxList } from './Loader';
+
 
 const Leaderboard = () => {
   // Sort users by high score in descending order
@@ -21,7 +23,7 @@ useEffect(()=>{
       // Handle successful login, like redirecting or storing token
      console.log(data);
      setUsers(data);
-      setError(''); // Clear any previous errors
+     setError('Added'); // Clear any previous errors
     } else {
       setError( 'Already Registered Username' || data.message);
     }
@@ -37,6 +39,7 @@ fetchScore();
   return (
     <div className="leaderboard">
       <h2 className="leaderboard-title">Leaderboard</h2>
+      {!error?(<CheckboxList/>):(
       <ul className="leaderboard-list">
         {users && users.map((user, index) => (
           <li key={user.username} className="leaderboard-item">
@@ -45,7 +48,7 @@ fetchScore();
             <span className="leaderboard-score">{user.score}</span>
           </li>
         ))}
-      </ul>
+      </ul>)}
     </div>
   );
 };

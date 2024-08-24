@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 function GameTimer({ onTimeup }) {
-  const [timeLeft, setTimeLeft] = useState(15); 
+  const [timeLeft, setTimeLeft] = useState(30); 
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (timeLeft > 0) {
+      if (timeLeft > 1) {
         setTimeLeft(timeLeft - 1);
       } else {
      
