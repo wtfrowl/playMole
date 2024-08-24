@@ -102,7 +102,7 @@ function Game() {
        "score": score
      });
      
-     let response = await fetch("http://localhost:4000/api/scores/update", { 
+     let response = await fetch("https://playmole.onrender.com/api/scores/update", { 
        method: "PATCH",
        body: bodyContent,
        headers: headersList

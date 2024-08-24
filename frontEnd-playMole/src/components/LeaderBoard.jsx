@@ -9,7 +9,7 @@ const Leaderboard = () => {
 useEffect(()=>{
  async function fetchScore(){
   try {
-    const response = await fetch('http://localhost:4000/api/scores/leaderboard', {
+    const response = await fetch('https://playmole.onrender.com/api/scores/leaderboard', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
