@@ -5,27 +5,27 @@ body {
   align-items: center;
   height: 100vh;
   background-image: url(./assets/bg.jpg);
-  /* background-color:#638a2f; */
+  /* background-color: rgba(99, 138, 47, 1); */
   font-family: "DotGothic16", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-h1{
+h1 {
   color: cornsilk;
 }
 button.btnAc {
   margin: 5px;
 }
 
-.container{
+.container {
   backdrop-filter: blur(2px);
   width: 700px;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,1fr);
-  cursor: url(./assets/cursor.png),auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  cursor: url(./assets/cursor.png), auto;
 }
-.mole{
+.mole {
   height: 200px;
   width: 200px;
   display: flex;
@@ -34,15 +34,15 @@ button.btnAc {
   justify-self: center;
 }
 @media screen and (max-width: 600px) {
-  .container{
+  .container {
     backdrop-filter: blur(2px);
-    cursor: url('./assets/cursor.png'),auto;
+    cursor: url('./assets/cursor.png'), auto;
     width: 350px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
-  .mole{
+  .mole {
     height: 100px;
     width: 100px;
     display: flex;
@@ -51,17 +51,16 @@ button.btnAc {
     justify-self: center;
   }
   body {
-   background-image: url(./assets/bg.jpg);
+    background-image: url(./assets/bg.jpg);
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-color:#638a2f; */
+    /* background-color: rgba(99, 138, 47, 1); */
   }
-
 }
-  
+
 .popup {
   z-index: 2;
   position: fixed;
@@ -78,24 +77,23 @@ button.btnAc {
 
 .popup-content {
   min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .popup-content button {
-  padding:5px;
+  padding: 5px;
   font-size: 25px;
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  background-color: rgba(241, 227, 227, 1);;
-  border:inset;
-  border-color: #080606;
+  background-color: rgba(241, 227, 227, 1);
+  border: inset;
+  border-color: rgba(8, 6, 6, 1);
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
 }
@@ -103,15 +101,14 @@ button.btnAc {
 .popup-content p {
   text-align: center;
   margin: 10px;
- 
 }
-.setup{
+.setup {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.form{
+.form {
   display: block;
   font-family: "DotGothic16", sans-serif;
   display: flex;
@@ -131,18 +128,18 @@ button.btnAc {
 }
 .form .input::placeholder {
   font-family: "DotGothic16", sans-serif;
-  color: #080606; /* Placeholder text color */
+  color: rgba(8, 6, 6, 1); /* Placeholder text color */
   opacity: 0.8; /* Adjusts the visibility of the placeholder */
 }
 .form .button {
-  padding:5px;
+  padding: 5px;
   font-size: 25px;
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  background-color: rgba(241, 227, 227, 1);;
-  border:inset;
-  border-color: #080606;
+  background-color: rgba(241, 227, 227, 1);
+  border: inset;
+  border-color: rgba(8, 6, 6, 1);
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
 }
@@ -150,29 +147,27 @@ button.btnAc {
 .error {
   min-height: 20px; /* Adjust the height according to your needs */
   color: white; /* Assuming error messages are in red */
-
   justify-content: center;
   align-items: center;
-  DISPLAY: flex;
+  display: flex;
   min-height: 20px;
   color: rgba(249, 207, 207, 1);
 }
 
-
-.switch{
+.switch {
   display: flex;
   justify-content: space-between;
 }
 .btnLeaderboard {
   margin-top: 5px;
   z-index: 3;
-  padding:5px;
+  padding: 5px;
   font-size: 25px;
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
   background-color: rgba(241, 227, 227, 1);
-  border:inset;
+  border: inset;
   border-color: black;
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
@@ -181,14 +176,14 @@ button.btnAc {
 .leaderboard-popup {
   min-height: 400px;
   min-width: 300px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(204, 204, 204, 1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   z-index: 200;
@@ -197,7 +192,6 @@ button.btnAc {
 .leaderboard-content {
   display: flex;
   flex-direction: column;
-
 }
 
 .btnClose {
@@ -210,26 +204,25 @@ button.btnAc {
   padding: 0;
   margin: 0;
   width: 100%;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid rgba(238, 238, 238, 1);
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
 }
 
 .leaderboard-item {
   display: flex;
   justify-content: space-between;
-  
   padding: 2px 3px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
   transition: background-color 0.3s ease;
 }
 
 .leaderboard-item:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 1);
 }
 
 .leaderboard-rank {
   font-weight: bold;
-  color: #333;
+  color: rgba(51, 51, 51, 1);
   font-size: 16px;
   width: 30px;
   text-align: center;
@@ -238,22 +231,21 @@ button.btnAc {
 .leaderboard-username {
   flex-grow: 1;
   text-align: left;
-  color: #555;
+  color: rgba(85, 85, 85, 1);
   font-size: 16px;
   padding-left: 10px;
 }
 
 .leaderboard-score {
   font-weight: bold;
-  color: #1a73e8;
+  color: rgba(26, 115, 232, 1);
   font-size: 16px;
 }
-.echo{
+.echo {
   font-size: 60px;
-  color: white;
   color: cornsilk;
 }
-.you{
+.you {
   font-weight: bold;
   background-color: rgba(159, 213, 97, 1);
 }
