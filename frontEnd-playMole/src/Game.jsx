@@ -27,7 +27,7 @@ function Game() {
   useEffect(() => {
     const interval = setInterval(() => {
       const rIndex = Math.floor(Math.random() * moles.length);
-      const isTroll = Math.random() < 0.3; 
+      const isTroll = Math.random() < 0.5; 
       
       if (isTroll) {
         showTrolls(rIndex);
