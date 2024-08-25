@@ -5,7 +5,8 @@ exports.getScores = async (req, res) => {
     const { username } = req.body;
     const sortedUsers = await User.find().sort({ score: -1 });
     const myRank =
-(await sortedUsers.findIndex((user) => user.username === username)) + 1;
+      (await sortedUsers.findIndex((user) => user.username === username)) + 1;
+    // User.find({ username: { $ne: username } }) if want to exclude
     const topScores = await User.find()
       .sort({ score: -1 })
       .limit(10)
