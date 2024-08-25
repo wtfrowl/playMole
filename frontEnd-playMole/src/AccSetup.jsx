@@ -28,7 +28,7 @@ if(isLogin){
         setUsername(inputUsername);
         Cookies.set('token', token, { expires: 1 });
         localStorage.setItem("highScore", user.score)
-           // Clear any previous errors
+     
        
       } else {
         setError(data.message || 'Error logging in');
@@ -73,8 +73,8 @@ if(isLogin){
   return (<>
   <div className="echo">GAME ON !</div>
   <div className="switch">
-        <h1 onClick={() => {setIsLogin(true); setError('')}} style={{ cursor: 'pointer', color: isLogin ? 'white' : 'lightgray' }}>LOGIN NOW</h1>
-        <h1 onClick={() => {setIsLogin(false); setError('')}} style={{ cursor: 'pointer', color: !isLogin ? 'white' : 'lightgray'  }}>SIGN UP</h1>
+        <h1 onClick={() => {setIsLogin(true); setError('')}} style={{ cursor: 'pointer', color: isLogin ? 'rgba(255, 249, 0, 1)' : 'rgba(167, 167, 167, 1)' }}>LOGIN NOW</h1>
+        <h1 onClick={() => {setIsLogin(false); setError('')}} style={{ cursor: 'pointer', color: !isLogin ? 'rgba(255, 249, 0, 1)' : 'rgba(167, 167, 167, 1)'  }}>SIGN UP</h1>
       </div>
     <form onSubmit={handleSubmit} className="setup form">
       <input

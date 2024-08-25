@@ -2,11 +2,15 @@ const User = require("../models/User");
 
 exports.getScores = async (req, res) => {
   try {
+    const { username } = req.body;
+    const sortedUsers = await User.find().sort({ score: -1 });
+    const myRank =
+      (await sortedUsers.findIndex((user) => user.username === username)) + 1;
     const topScores = await User.find()
       .sort({ score: -1 })
       .limit(10)
       .select("username score");
-    res.json(topScores);
+    res.json({ topScores, myRank });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });

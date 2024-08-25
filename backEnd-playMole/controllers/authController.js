@@ -33,7 +33,6 @@ exports.signup = async (req, res) => {
 
     // Save the user
     await user.save();
-
     // Generate an authentication token
     const token = await user.generateAuthToken();
     user.password = "";

@@ -11,7 +11,7 @@ const App = () => {
 
     async function apiHealth(){
     try { 
-      const res = await fetch('/health',{
+      const res = await fetch('https://playmole.onrender.com/health',{
         method:'GET'
       })
       console.log(res);

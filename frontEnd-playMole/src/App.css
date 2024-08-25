@@ -93,7 +93,7 @@ button.btnAc {
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  background-color: #f1e3e3;
+  background-color: rgba(241, 227, 227, 1);;
   border:inset;
   border-color: #080606;
   font-family: "DotGothic16", sans-serif;
@@ -125,7 +125,7 @@ button.btnAc {
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  background-color: #f1ecde;
+  background-color: rgba(241, 236, 222, 1);
   border-bottom: inset;
   text-align: center;
 }
@@ -140,7 +140,7 @@ button.btnAc {
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  background-color: #f1e3e3;
+  background-color: rgba(241, 227, 227, 1);;
   border:inset;
   border-color: #080606;
   font-family: "DotGothic16", sans-serif;
@@ -155,7 +155,7 @@ button.btnAc {
   align-items: center;
   DISPLAY: flex;
   min-height: 20px;
-  color: #f9cfcf;
+  color: rgba(249, 207, 207, 1);
 }
 
 
@@ -171,9 +171,9 @@ button.btnAc {
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  background-color: #f1e3e3;
+  background-color: rgba(241, 227, 227, 1);
   border:inset;
-  border-color: #080606;
+  border-color: black;
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
 }
@@ -252,4 +252,8 @@ button.btnAc {
   font-size: 60px;
   color: white;
   color: cornsilk;
+}
+.you{
+  font-weight: bold;
+  background-color: rgba(159, 213, 97, 1);
 }
