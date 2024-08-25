@@ -132,6 +132,7 @@ button.btnAc {
   opacity: 0.8; /* Adjusts the visibility of the placeholder */
 }
 .form .button {
+  color: black;
   padding: 5px;
   font-size: 25px;
   border-radius: 10px;
@@ -159,6 +160,7 @@ button.btnAc {
   justify-content: space-between;
 }
 .btnLeaderboard {
+  color: black;
   margin-top: 5px;
   z-index: 3;
   padding: 5px;
