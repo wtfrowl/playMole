@@ -4,8 +4,9 @@ exports.getScores = async (req, res) => {
   try {
     const { username } = req.body;
     const sortedUsers = await User.find().sort({ score: -1 });
-    const myRank =(await sortedUsers.findIndex((user) => user.username === username)) + 1;
-    const topScores = await User.find({ username: { $ne: username } })
+    const myRank =
+(await sortedUsers.findIndex((user) => user.username === username)) + 1;
+    const topScores = await User.find()
       .sort({ score: -1 })
       .limit(10)
       .select("username score");
