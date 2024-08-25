@@ -3,10 +3,12 @@ import cry from "./assets/cry.mp3";
 import win from "./assets/win.mp3";
 const cryMp3 = new Audio(cry);
 function Popup({ isOpen, onClose, myscore,lb }) {
-  const hScore = localStorage.getItem("highScore");
+  const [hScore,setHscore] = useState(0); 
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   useEffect(() => {
+    const hs = localStorage.getItem("highScore");
+    setHscore(hs);
     if (isOpen && myscore < hScore) {
       
       cryMp3.play();

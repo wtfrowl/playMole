@@ -20,8 +20,6 @@ function Game() {
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(false); // State for leaderboard popup
 
- 
-
   useEffect(() => {
     const interval = setInterval(() => {
       const rIndex = Math.floor(Math.random() * moles.length);
@@ -29,7 +27,7 @@ function Game() {
       setTimeout(() => {
         hideMoles(rIndex);
       }, 680);
-    }, 1000); 
+    }, 800); 
   
     return () => {
       clearInterval(interval);
@@ -57,8 +55,6 @@ function Game() {
     audioBonk.srcObject=null;
     audioError.srcObject=null
     if (!moles[idx]) return audioError.play();
-    // const nMoles=[...moles];
-    // nMoles[idx]= false;
     audioBonk.play();
     setScore((score) => score + 1);
     hideMoles(idx);
@@ -67,7 +63,6 @@ function Game() {
     setScore((score) => score * 0);
     setStartGame(true);
     console.log(startGame);
-
     document.querySelector(".popup").style.display = "none";
   }
   function handleReset() {
@@ -81,10 +76,10 @@ function Game() {
 
   async function onTimeup() {
 
-    console.log("tIME IS UP", score, localStorage.getItem("highScore"));
-    if (score > localStorage.getItem("highScore")) {
+ //   console.log("tIME IS UP", score, localStorage.getItem("highScore"));
+    if (score >= localStorage.getItem("highScore")) {
       setHighScore(score + 1);
-      localStorage.setItem("highScore", score);
+      localStorage.setItem("highScore", score+1);
     await upScore();
 
     }
@@ -102,7 +97,7 @@ function Game() {
      
      let bodyContent = JSON.stringify({
        "username": username,
-       "score": score
+       "score": score+1
      });
      
      let response = await fetch("https://playmole.onrender.com/api/scores/update", { 
@@ -185,7 +180,7 @@ function Game() {
           ))}
         </div>
       )}
-      <Popup isOpen={isPopupOpen} onClose={closePopup} myscore={score}  lb={toggleLeaderboard}/>
+      <Popup isOpen={isPopupOpen} onClose={closePopup} myscore={score} lb={toggleLeaderboard} />
     </>
   );
 }

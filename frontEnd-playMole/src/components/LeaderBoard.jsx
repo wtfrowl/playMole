@@ -36,7 +36,6 @@ const Leaderboard = () => {
         const data = await response.json();
         if (response.ok) {
           // Handle successful login, like redirecting or storing token
-          console.log(data.topScores);
           setUsers(data.topScores);
           setRank(data.myRank);
           setError("Added"); // Clear any previous errors
