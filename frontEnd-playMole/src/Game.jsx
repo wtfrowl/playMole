@@ -45,7 +45,7 @@ function Game() {
     return () => {
       clearInterval(interval);
     };
-  }, [moles, startGame, highScore]);
+  }, [moles, trolls,startGame, highScore]);
 
   function showMoles(idx) {
     setMoles((curMoles) => {
